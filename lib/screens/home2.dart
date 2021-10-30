@@ -23,6 +23,11 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          centerTitle: true,
+          title: const Text('Weeb App'),
+          elevation: 0,
+          backgroundColor: Colors.transparent),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -77,9 +82,13 @@ class _HomeState extends State<Home> {
                                         height: 150,
                                         child: Image.network(
                                             snapshot.data![index].image)),
-                                    Text(
-                                      snapshot.data![index].title,
-                                      overflow: TextOverflow.ellipsis,
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 3, right: 3),
+                                      child: Text(
+                                        snapshot.data![index].title,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
                                     ),
                                   ],
                                 ),
