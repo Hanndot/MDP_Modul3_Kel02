@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mod3_kel02/screens/detail.dart';
+import 'package:mod3_kel02/screens/detail2.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -32,6 +33,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
           centerTitle: true,
           title: Text('Weeb App'),
+          elevation: 0,
           backgroundColor: Colors.transparent),
       body: SingleChildScrollView(
         child: Column(
@@ -69,7 +71,7 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => DetailPage(
+                                  builder: (context) => Detail2Page(
                                     item: snapshot.data![index].malId,
                                     title: snapshot.data![index].title,
                                   ),
@@ -101,7 +103,9 @@ class _HomeState extends State<Home> {
                         return const Center(
                             child: Text('Something went wrong :('));
                       }
-                      return CircularProgressIndicator();
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
                     }),
               ),
             ),
@@ -141,7 +145,7 @@ class _HomeState extends State<Home> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => DetailPage(
+                                      builder: (context) => Detail2Page(
                                           item: snapshot.data![index].malId,
                                           title: snapshot.data![index].title),
                                     ),
@@ -155,7 +159,9 @@ class _HomeState extends State<Home> {
                         return const Center(
                             child: Text('Something went wrong :('));
                       }
-                      return CircularProgressIndicator();
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
                     }),
               ),
             ),
