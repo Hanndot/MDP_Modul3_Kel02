@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:mod3_kel02/screens/home.dart';
+import 'package:mod3_kel02/screens/home2.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
       splash: Image.asset(
         'assets/images/splash_image.png',
       ),
-      nextScreen: HomePage(),
+      nextScreen: Home(),
       splashTransition: SplashTransition.decoratedBoxTransition,
       backgroundColor: Colors.grey,
       duration: 3000,

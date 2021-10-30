@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
                   itemCount: snapshot.data!.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Card(
-                      color: Colors.white,
+                      color: Colors.black45,
                       child: ListTile(
                         contentPadding: const EdgeInsets.symmetric(
                             horizontal: 20.0, vertical: 10.0),
