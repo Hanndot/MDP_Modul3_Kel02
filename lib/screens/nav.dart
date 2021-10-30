@@ -25,11 +25,6 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Weeb App'),
-          elevation: 0,
-          backgroundColor: Colors.transparent),
       body: screens[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
