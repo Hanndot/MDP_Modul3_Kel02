@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mod3_kel02/screens/detail.dart';
 import 'package:mod3_kel02/screens/detail2.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -13,12 +12,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   late Future<List<NowAiring>> airing;
   late Future<List<Top>> top;
-  int selectedIndex = 0;
-  void _onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
 
   @override
   void initState() {
@@ -30,11 +23,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          centerTitle: true,
-          title: Text('Weeb App'),
-          elevation: 0,
-          backgroundColor: Colors.transparent),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -61,7 +49,7 @@ class _HomeState extends State<Home> {
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return ListView.builder(
-                          physics: ClampingScrollPhysics(),
+                          physics: const ClampingScrollPhysics(),
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemCount: snapshot.data!.length,
@@ -117,14 +105,14 @@ class _HomeState extends State<Home> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 24, right: 24),
+              padding: const EdgeInsets.only(left: 20, right: 20),
               child: SizedBox(
                 child: FutureBuilder<List<Top>>(
                     future: top,
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return ListView.builder(
-                          physics: ClampingScrollPhysics(),
+                          physics: const ClampingScrollPhysics(),
                           shrinkWrap: true,
                           itemCount: snapshot.data!.length,
                           itemBuilder: (BuildContext context, int index) {
@@ -167,17 +155,6 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        ],
-        currentIndex: selectedIndex,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        showUnselectedLabels: true,
-        onTap: _onItemTapped,
       ),
     );
   }
