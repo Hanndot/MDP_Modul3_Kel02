@@ -41,10 +41,10 @@ class _Detail2PageState extends State<Detail2Page> {
               return Center(
                   child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Container(
+                  SizedBox(
                     height: 350,
                     width: MediaQuery.of(context).size.width,
                     child: ClipRRect(
@@ -52,33 +52,36 @@ class _Detail2PageState extends State<Detail2Page> {
                       child: Image.network(snapshot.data!.image),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     snapshot.data!.title,
-                    style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(color: Colors.black, letterSpacing: .5),
-                    ),
+                    style: GoogleFonts.roboto(fontSize: 20),
                   ),
-                  Text(snapshot.data!.score.toString()),
+                  Text(
+                    'MAL Score: ' + snapshot.data!.score.toString(),
+                    style: GoogleFonts.roboto(),
+                  ),
+                  Text(
+                    'Premiere Date: ' + snapshot.data!.premiered,
+                    style: GoogleFonts.roboto(),
+                  ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding:
+                        const EdgeInsets.only(left: 20, top: 10, right: 20),
                     child: Text(
                       snapshot.data!.synopsis,
-                      style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
-                          color: Colors.black,
-                          letterSpacing: .5,
-                        ),
-                      ),
+                      style: GoogleFonts.roboto(letterSpacing: 0.5),
+                      textAlign: TextAlign.justify,
                     ),
                   ),
                 ],
               ));
             } else if (snapshot.hasError) {
-              return const Center(child: Text('Something went wrong :('));
+              return const Center(child: Text('Something went wrong'));
             }
-            return const CircularProgressIndicator();
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           },
         )),
       ),
@@ -92,15 +95,16 @@ class AnimeDetail {
   final String synopsis;
   final num malId;
   final num score;
-  final String startDate;
+  final String premiered;
 
-  AnimeDetail(
-      {required this.image,
-      required this.title,
-      required this.synopsis,
-      required this.malId,
-      required this.score,
-      required this.startDate});
+  AnimeDetail({
+    required this.image,
+    required this.title,
+    required this.synopsis,
+    required this.malId,
+    required this.score,
+    required this.premiered,
+  });
 
   factory AnimeDetail.fromJson(json) {
     return AnimeDetail(
@@ -109,7 +113,7 @@ class AnimeDetail {
       synopsis: json['synopsis'],
       malId: json['mal_id'],
       score: json['score'],
-      startDate: json['start_date'],
+      premiered: json['premiered'],
     );
   }
 }

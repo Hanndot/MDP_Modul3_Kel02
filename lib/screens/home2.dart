@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
                 children: [
                   Text(
                     'Now Airing',
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
               padding: const EdgeInsets.only(left: 24, top: 20),
               child: Text(
                 'Top Anime',
-                style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                style: GoogleFonts.roboto(fontWeight: FontWeight.bold),
               ),
             ),
             Padding(
@@ -211,7 +211,7 @@ class Top {
   final int malId;
   final String title;
   final String imageUrl;
-  final double score;
+  final num score;
 
   Top({
     required this.malId,
