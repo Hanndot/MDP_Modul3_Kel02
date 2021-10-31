@@ -53,9 +53,13 @@ class _Detail2PageState extends State<Detail2Page> {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  Text(
-                    snapshot.data!.title,
-                    style: GoogleFonts.roboto(fontSize: 20),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 5, right: 5),
+                    child: Text(
+                      snapshot.data!.title,
+                      style: GoogleFonts.roboto(fontSize: 20),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                   Text(
                     'MAL Score: ' + snapshot.data!.score.toString(),
@@ -66,8 +70,8 @@ class _Detail2PageState extends State<Detail2Page> {
                     style: GoogleFonts.roboto(),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, top: 10, right: 20),
+                    padding: const EdgeInsets.only(
+                        left: 20, top: 10, right: 20, bottom: 20),
                     child: Text(
                       snapshot.data!.synopsis,
                       style: GoogleFonts.roboto(letterSpacing: 0.5),
